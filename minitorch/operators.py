@@ -185,10 +185,10 @@ def zipWith(fn):
 
     """
     def pairwise(ls1, ls2):
-        newlst = []
+        newlst = [0]*len(ls2)
 
-        for i in range(ls1):
-            newlst.append(fn(ls1[i], ls2[i]))
+        for i in range(len(ls1)):
+            newlst[i] = fn(ls1[i], ls2[i])
 
         return newlst
 
@@ -220,8 +220,8 @@ def reduce(fn, start):
     """
     def reduction(ls):
         comp = start
-        for i in range(ls):
-            comp = fn(ls[i], comp)
+        for i in ls:
+            comp = fn(i, comp)
         return comp
 
     return reduction
